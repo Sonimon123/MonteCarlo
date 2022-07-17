@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import unittest
-import montecarlo
+import MonteCarlo
 
 class MonteCarloTestSuite(unittest.TestCase):
 
@@ -9,7 +9,7 @@ class MonteCarloTestSuite(unittest.TestCase):
     faces2 = np.array(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'])
     faces3 = np.array(['heads', 'tails'])
 
-    die1 = montecarlo.Die(faces1)
+    die1 = MonteCarlo.Die(faces1)
 
     def test_01_die_init_1(self):
         '''Ensure that all weights are equal after initialization'''
@@ -28,15 +28,15 @@ class MonteCarloTestSuite(unittest.TestCase):
         '''Ensure that seeDie is the correct dimensions'''
         self.assertTrue(self.die1.seeDie().shape == (self.faces1.size, 2), "Die.seeDie returns the wrong number of faces.")
 
-    die2 = montecarlo.Die(faces2)
-    die3 = montecarlo.Die(faces3)
+    die2 = MonteCarlo.Die(faces2)
+    die3 = MonteCarlo.Die(faces3)
 
     def test_05_game_init(self):
         '''Ensure that a Game Object will not be created with non-matching dice'''
         with self.assertRaises(AssertionError):
-            game0 = montecarlo.Game([self.die1, self.die2, self.die3])
+            game0 = MonteCarlo.Game([self.die1, self.die2, self.die3])
     
-    game1 = montecarlo.Game([die1, die1, die1, die1, die1])
+    game1 = MonteCarlo.Game([die1, die1, die1, die1, die1])
 
     def test_06_game_play(self):
         '''Ensure that the dataframe created when a game is played has the correct shape given a known number of dice and rolls'''
@@ -47,9 +47,9 @@ class MonteCarloTestSuite(unittest.TestCase):
         '''Check that shape of stacked dataframe is correct'''
         self.assertTrue(self.game1.show(True).shape == (50,), "Stacked data gives incorrect shape")
 
-    game2 = montecarlo.Game([die3, die3, die3, die3])
+    game2 = MonteCarlo.Game([die3, die3, die3, die3])
     game2.play(10)
-    analyzer1 = montecarlo.Analyzer(game2)
+    analyzer1 = MonteCarlo.Analyzer(game2)
 
     def test_08_analyzer_init(self):
         '''Check that dtype of correct subtype is given when creating analyzer (Strings become object dtype)'''

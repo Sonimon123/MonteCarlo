@@ -1,0 +1,31 @@
+c:\users\jrkar\git\montecarlo\MonteCarlo\MonteCarlo.py:103: FutureWarning: The default dtype for empty Series will be 'object' instead of 'float64' in a future version. Specify a dtype explicitly to silence this warning.
+  jackpotDF = pd.Series()
+test_01_die_init_1 (__main__.MonteCarloTestSuite)
+Ensure that all weights are equal after initialization ... ok
+test_02_die_init_2 (__main__.MonteCarloTestSuite)
+Ensure that all weights are 1 ... ok
+test_03_die_roll (__main__.MonteCarloTestSuite)
+Ensure that 'roll' rolls the die the correct number of times ... ok
+test_04_die_seeDie (__main__.MonteCarloTestSuite)
+Ensure that seeDie is the correct dimensions ... ok
+test_05_game_init (__main__.MonteCarloTestSuite)
+Ensure that a Game Object will not be created with non-matching dice ... ok
+test_06_game_play (__main__.MonteCarloTestSuite)
+Ensure that the dataframe created when a game is played has the correct shape given a known number of dice and rolls ... ok
+test_07_game_play (__main__.MonteCarloTestSuite)
+Check that shape of stacked dataframe is correct ... ok
+test_08_analyzer_init (__main__.MonteCarloTestSuite)
+Check that dtype of correct subtype is given when creating analyzer (Strings become object dtype) ... ok
+test_09_analyzer_jackpot (__main__.MonteCarloTestSuite)
+Check that the jackpot returns possible result ... ok
+test_10_analyzer_combo (__main__.MonteCarloTestSuite)
+Check that sum of combo values adds up to number of rolls ... ok
+test_11_analyzer_faceCounts (__main__.MonteCarloTestSuite)
+Check that number of faceCounts columns equals number of known die faces ... ok
+test_12_analyzer_faceType (__main__.MonteCarloTestSuite)
+Check that faceType is returning correct FaceType ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.014s
+
+OK
